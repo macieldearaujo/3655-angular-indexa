@@ -32,4 +32,12 @@ export class ContatoService {
     const url = `${this.API}/${contato.id}`;
     return this.http.put<Contato>(this.API, contato);
   }
+
+  editarOuSalvar(contato: Contato) {
+    if (contato.id) {
+      return this.salvarContato(contato);
+    } else {
+      return this.editarContato(contato);
+    }
+  }
 }
